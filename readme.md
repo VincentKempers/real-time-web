@@ -95,11 +95,11 @@ const playlist = [
 
 
 ## Todo
-* [x] Express server.
-* [x] Socket Connection.
-* [x] Playlist updates for everyone.
-* [x] Add usernames.
-* [ ] CSS (_my planning is horrible :(_)
-* [ ] Rooms (_wanted to fix this, this week_).
-* [ ] Api connection.
-  * Will be updated..
+- [x] Express server.
+- [x] Socket Connection.
+- [x] Playlist updates for everyone.
+- [x] Add usernames.
+- [ ] CSS (_my planning is horrible :(_)
+- [ ] Rooms (_wanted to fix this, this week_).
+- [ ] Api connection.
+  - Will be updated..
