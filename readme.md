@@ -1,45 +1,105 @@
-# Real Time Web course repo
+# Generate a playlist together.
+
+![Generate a playlist together](https://media.giphy.com/media/1yTcAAlg6OGUJNNjlb/giphy.gif)
+
+[Here you can find my live application](https://assignment-1-dkgydvdhlj.now.sh/)
+
+## where it started
+
+This is a start of an app that uses websockets that people can join and search songs and add them to the queue.
 
 ![realtime chat application](assignment-1/read-me-assets/cover.gif)
+I started with the chat application
 
 This application is a chat application that works realtime using the socket.io api.
 
 
-## Install
+## Getting started
 
-Get all dependencies
-```
-npm install
-```
+* Clone the repo
+* Navigate to the repo and when inside the repo go into assignment-1
+* Get all dependencies ```npm install```
+* Start application ```npm start```
+* it wil run on [http://localhost:3000](http://localhost:3000)
+* Start for development ```npm run dev```
 
-Start application
-```
-npm start
-```
 
-## Feature
+## Dependencies
 - Node
 - Express
 - EJS
 - Socket.io
+- bodyParser
+- Nodemon (for the dev enviroment)
+
+## Features
+
+This app is an start for an application that will be a Realtime Music player with Queue's. You can send a title suggestion and see your name (that you entered in the prompt). This is being done real time so you can keep sending suggestions. When an api (eg. spotify, soundcloud or youtube) is connected the songs will be played (as a live playlist).
+
+![add ron](https://media.giphy.com/media/dlfW79NPqRHd0a5Slg/giphy.gif)
+![add file](https://media.giphy.com/media/YW1ySJTkaffyajWwUH/giphy.gif)
 
 
-## Week 1
-[Slides](https://drive.google.com/open?id=1QxeKsSXnf9poJFWoEe_slHuMb7apB-2eNyUTzi18kcQ)
+## Code
+* EJS - I used EJS for the first time as templating engine.
+I used it pretty light in my application. But i will use it more when i add more to the application.
 
-[Assignments](https://drive.google.com/open?id=1OUspHz0enLpoVjbyHMHpAQCjSEmkn8rfHbkoSuwjw4M) (in Dutch)
+```JS
+<ul>
+  <% playlist.forEach(function(song) { %>
+    <li><%= song.artist %> - <%= song.title %> (<%= song.user || 'Anoniempje' %>)</li>
+  <% }); %>
+</ul>
+```
 
-## Week 2
-[Slides](https://drive.google.com/open?id=1-tI7rFjHchbph6FEqpNvDi7XCh3Uy-3bohi_jBdZhcQ)
+* Socket.io - On the Socket.io side i used the connection and emitted the function. In update list I emitted the playlist object.
 
-[Assignments](https://drive.google.com/open?id=1rjE1bG-rrgfEOssMxCYr7Q0Ba5BJs9WKkvVvjI7y2fQ) (in Dutch)
+```JS
+io.on('connection', (socket) => {
+  socket.on('newSong', (newSong) => {
+    playlist.push(newSong);
+    io.emit('updatelist', playlist);
+  });
+});
+```
 
-## Week 3
-[Slides](https://drive.google.com/open?id=1BHoe8Fif7nLA00V4WEANJANnObxHBnVnwnQHnfXl4aM)
+  * on the client..
+Listen to the socket - updatelist and i get the updated playlist (from the server). And checks if the user is filled in (from the prompt) if not your name will be "Anoniempje".
 
-[Assignments](https://drive.google.com/open?id=1zoRC5kDeSQad8vdi62u6AEj_SfpvPzKE7wjYTsdO2JI) (in Dutch)
+```JS
+socket.on('updatelist', function (playlist) {
+  document.querySelector('ul').innerHTML = playlist
+    .map(song => `<li>${song.artist} - ${song.title} (${song.user || 'Anoniempje'})</li>`)
+    .join('');
+});
+```
 
-## Grading
-In the first and second week you will receive oral feedback on your assignments. In week three you will have a chance to present your final assignment during an oral exam. This assessment will make up 100% of your grade for this course.
+_Playlist object_
+```JS
+const playlist = [
+  {
+    title: 'Till it\'s over',
+    artist: 'Anderson.Paak'
+  },
+  {
+    title: 'Da Vinci',
+    artist: 'Weezer'
+  },
+  {
+    title: 'Stadaarnietzodoeiets',
+    artist: 'Fokko'
+  },
+];
+```
 
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
+
+
+## Todo
+* [x] Express server.
+* [x] Socket Connection.
+* [x] Playlist updates for everyone.
+* [x] Add usernames.
+* [ ] CSS (_my planning is horrible :(_)
+* [ ] Rooms (_wanted to fix this, this week_).
+* [ ] Api connection.
+  * Will be updated..
