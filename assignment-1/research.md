@@ -1,7 +1,7 @@
 # Research for the application.
 
 ## App Sketches and sketch design
-
+To visualize the project and product i need to sketch out what this app is going to do and write out my process. You will find my lo-fi sketches and hi-fi sketches. This will add 'some' clarity about the usage of this application. 
 ### UX Sketches
 
 ![]()
@@ -19,7 +19,7 @@
 ![]()
 
 ## Rooms
-
+- [ ] There are going to be rooms in the app as an implementation of the app.
 
 ### Genres
 Rooms will be split up in genres
@@ -40,8 +40,31 @@ When somebody connects to the room people should know who joined.
 By sending and adding these in the playlist you connect with people in the server by adding and connecting with the server.
 
 #### Save playlist?
-
+You would want a history in the app or export this probably play or have this in your spotify/youtube/soundcloud app/account. 
 
 ## Api Connection
 
+### Spotify
+
+[Spotify Api Docs](https://beta.developer.spotify.com/documentation/web-api/quick-start/)
+
+### Soundcloud
+[Soundcloud Api docs](https://developers.soundcloud.com/)
+
+### Youtube Music
+
+[Youtube Player API Docs](https://developers.google.com/youtube/iframe_api_reference#Requirements)
+
+### Last FM
+
+[Last FM Docs](https://www.last.fm/api/intro)
+
+### Conclusion
+
+
+
+* [ ] I'm using ____ Api.
+
 ## oAuth
+
+### Information about oAuth
