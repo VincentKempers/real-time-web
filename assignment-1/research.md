@@ -1,4 +1,15 @@
-# Research for the application.
+<h1 align="center">Research for the application.</h1>
+
+<div align="center">
+  :notebook::pencil2: <img src="https://img.shields.io/badge/readme-research-blue.svg">
+</div>
+<div align="center">
+  <strong>Research for the music application.</strong>
+</div>
+
+<br />
+
+--------
 
 ## App Sketches and sketch design
 To visualize the project and product i need to sketch out what this app is going to do and write out my process. You will find my lo-fi sketches and hi-fi sketches. This will add 'some' clarity about the usage of this application. 
@@ -9,8 +20,6 @@ To visualize the project and product i need to sketch out what this app is going
 
 ### Visual Design
 
-![]()
-![]()
 ![]()
 ![]()
 
@@ -60,8 +69,6 @@ You would want a history in the app or export this probably play or have this in
 [Last FM Docs](https://www.last.fm/api/intro)
 
 ### Conclusion
-
-
 
 * [ ] I'm using ____ Api.
 
